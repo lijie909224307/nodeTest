@@ -1,0 +1,24 @@
+{
+  "name": "lijie_test_createmodule",
+  "version": "1.0.0",
+  "description": "测试创建模块",
+  "main": "helloworld.js",
+  "dependencies": {
+    "npm": "^6.13.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "npm run test",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lijie909224307/nodeTest.git"
+  },
+  "author": "lijie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lijie909224307/nodeTest/issues"
+  },
+  "homepage": "https://github.com/lijie909224307/nodeTest#readme"
+}

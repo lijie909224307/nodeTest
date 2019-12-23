@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>用户信息列表</title>
+		<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	</head>
+	<body>
+		<script id="dataTpl" type="text/html">
+			<tr>
+				<td name='name'></th>
+				<td name='age'></th>
+				<td name='job'></th>
+				<td name='remark'></th>
+				<td name='edit'><button type='button'>删除</button></th>
+			</tr>
+		</script>
+		
+		<button><a href="add.html">新增</a></button>
+		<div style="text-align: center;">
+			<table id="dataTable" border="1" cellspacing="1px" cellpadding="2px" width="500px">
+				<tr>
+					<th>姓名</th>
+					<th>年龄</th>
+					<th>职业</th>
+					<th>备注</th>
+					<th>操作</th>
+				</tr>
+			</table>
+		</div>
+	</body>
+	<script type="text/javascript">
+		$.ajax('/list', {
+			type: 'get',
+			dataType: 'json',
+			success: function(res) {
+				debugger
+				if(res.code == 0){
+					var data = res.data;
+					var tpl = $('#dataTpl').html();
+					$.each(data,function(i,o){
+						let tr = $(tpl);
+						$.each(tr.find('td'),function(item,obj){
+							let name = $(obj).attr('name');
+							$(obj).html(o[name]);
+						});
+						$('#dataTable').append(tr);
+					});
+				}
+			}
+		});
+	</script>
+</html>
